@@ -8,12 +8,12 @@ public class NumberObjectAssertion<T extends Number & Comparable<T>> extends Com
 	{
 		super(value);
 	}
-	
+
 	@Override
 	public boolean isCloseTo(T value)
 	{
 		double delta = this.get().doubleValue() - value.doubleValue();
-		return delta > -1d && delta < 1d;
+		return (delta > -1d) && (delta < 1d);
 	}
 
 }

@@ -7,13 +7,13 @@ import jul.nla.assertion.NotAssertion;
 public class MapNotAssertion<T extends Map<?, ?>> extends NotAssertion<T> implements MapAssertion<T>
 {
 	private MapAssertion<T> inner;
-	
+
 	public MapNotAssertion(MapAssertion<T> inner)
 	{
 		super(inner);
 		this.inner = inner;
 	}
-	
+
 	@Override
 	protected MapAssertion<T> inside()
 	{

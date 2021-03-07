@@ -5,13 +5,13 @@ import jul.nla.assertion.comparable.ComparableNotAssertion;
 public class StringNotAssertion extends ComparableNotAssertion<String> implements StringAssertion
 {
 	private StringAssertion inner;
-	
+
 	public StringNotAssertion(StringAssertion inner)
 	{
 		super(inner);
 		this.inner = inner;
 	}
-	
+
 	@Override
 	protected StringAssertion inside()
 	{

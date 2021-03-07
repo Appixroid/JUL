@@ -7,8 +7,7 @@ import java.util.Map;
 
 import jul.annotations.Test;
 import jul.annotations.TestSet;
-
-import static jul.nla.Asserts.*;
+import jul.nla.Asserts;
 
 @TestSet
 public class NaturalLanguageAssertion
@@ -16,74 +15,74 @@ public class NaturalLanguageAssertion
 	@Test
 	public void isEqualTo()
 	{
-		assert that(5).isEqualTo(5);
+		assert Asserts.that(5).isEqualTo(5);
 	}
 
 	@Test
 	public void isGreaterThan()
 	{
-		assert that(5).isGreaterThan(1);
+		assert Asserts.that(5).isGreaterThan(1);
 	}
 
 	@Test
 	public void isGreaterOrEqualTo()
 	{
-		assert that(5).isGreaterOrEqualTo(1);
+		assert Asserts.that(5).isGreaterOrEqualTo(1);
 	}
 
 	@Test
 	public void isLessThan()
 	{
-		assert that(5).isLessThan(10);
+		assert Asserts.that(5).isLessThan(10);
 	}
 
 	@Test
 	public void isLessOrEqualTo()
 	{
-		assert that(5).isLessOrEqualTo(10);
+		assert Asserts.that(5).isLessOrEqualTo(10);
 	}
 
 	@Test
 	public void isCloseTo()
 	{
-		assert that(5.1d).isCloseTo(5d);
+		assert Asserts.that(5.1d).isCloseTo(5d);
 	}
 
 	@Test
 	public void isAllOf()
 	{
-		assert that(5).isAllOf(5, 5, 5);
+		assert Asserts.that(5).isAllOf(5, 5, 5);
 	}
 
 	@Test
 	public void isIn()
 	{
-		assert that(5).isIn(1, 5, 9);
+		assert Asserts.that(5).isIn(1, 5, 9);
 	}
 
 	@Test
 	public void isNullValue()
 	{
-		assert that((Object) null).isNullValue();
+		assert Asserts.that((Object) null).isNullValue();
 	}
 
 	@Test
 	public void isIntanceOf()
 	{
-		assert that(5).isInstanceOf(Integer.class);
+		assert Asserts.that(5).isInstanceOf(Integer.class);
 	}
 
 	@Test
 	public void isSameInstance()
 	{
 		Object o = new Object();
-		assert that(o).isSameInstance(o);
+		assert Asserts.that(o).isSameInstance(o);
 	}
 
 	@Test
 	public void hasToString()
 	{
-		assert that(5).hasToString("5");
+		assert Asserts.that(5).hasToString("5");
 	}
 
 	@Test
@@ -92,11 +91,11 @@ public class NaturalLanguageAssertion
 		List<Integer> l = new ArrayList<Integer>() {
 			private static final long serialVersionUID = 1L;
 			{
-				add(5);
+				this.add(5);
 			}
 		};
 
-		assert that(l).hasItem(5);
+		assert Asserts.that(l).hasItem(5);
 	}
 
 	@Test
@@ -105,10 +104,10 @@ public class NaturalLanguageAssertion
 		Map<Integer, String> m = new HashMap<Integer, String>() {
 			private static final long serialVersionUID = 1L;
 			{
-				put(5, "5");
+				this.put(5, "5");
 			}
 		};
-		assert that(m).hasEntry(5, "5");
+		assert Asserts.that(m).hasEntry(5, "5");
 	}
 
 	@Test
@@ -117,10 +116,10 @@ public class NaturalLanguageAssertion
 		Map<Integer, String> m = new HashMap<Integer, String>() {
 			private static final long serialVersionUID = 1L;
 			{
-				put(5, "5");
+				this.put(5, "5");
 			}
 		};
-		assert that(m).hasKey(5);
+		assert Asserts.that(m).hasKey(5);
 	}
 
 	@Test
@@ -129,27 +128,27 @@ public class NaturalLanguageAssertion
 		Map<Integer, String> m = new HashMap<Integer, String>() {
 			private static final long serialVersionUID = 1L;
 			{
-				put(5, "5");
+				this.put(5, "5");
 			}
 		};
-		assert that(m).hasValue("5");
+		assert Asserts.that(m).hasValue("5");
 	}
 
 	@Test
 	public void startsWith()
 	{
-		assert that("12345").startsWith("1");
+		assert Asserts.that("12345").startsWith("1");
 	}
 
 	@Test
 	public void endsWith()
 	{
-		assert that("12345").endsWith("5");
+		assert Asserts.that("12345").endsWith("5");
 	}
 
 	@Test
 	public void contains()
 	{
-		assert that("12345").contains("5");
+		assert Asserts.that("12345").contains("5");
 	}
 }

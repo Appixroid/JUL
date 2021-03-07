@@ -3,18 +3,18 @@ package jul.result.type;
 public class ErrorType implements ResultType
 {
 	private static final String ERROR_TYPE = "ERROR";
-	
+
 	private String cause;
-	
+
 	public ErrorType(String cause)
 	{
 		this.cause = cause;
 	}
-	
+
 	@Override
 	public String getType()
 	{
-		return ERROR_TYPE;
+		return ErrorType.ERROR_TYPE;
 	}
 
 	@Override
@@ -22,7 +22,7 @@ public class ErrorType implements ResultType
 	{
 		return this.cause;
 	}
-	
+
 	@Override
 	public boolean isSuccess()
 	{
@@ -32,6 +32,6 @@ public class ErrorType implements ResultType
 	@Override
 	public String toString()
 	{
-		return ERROR_TYPE + " because " + this.cause;
+		return ErrorType.ERROR_TYPE + " because " + this.cause;
 	}
 }

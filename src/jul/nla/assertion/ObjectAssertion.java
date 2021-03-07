@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class ObjectAssertion<T> implements Assertion<T>
 {
 	protected T value;
-	
+
 	public ObjectAssertion(T value)
 	{
 		this.value = value;
@@ -16,7 +16,7 @@ public class ObjectAssertion<T> implements Assertion<T>
 	{
 		return this.value;
 	}
-	
+
 	@Override
 	public boolean isEqualTo(T value)
 	{
@@ -27,12 +27,12 @@ public class ObjectAssertion<T> implements Assertion<T>
 	public boolean isAllOf(@SuppressWarnings("unchecked") T... values)
 	{
 		boolean allEquals = true;
-		
+
 		for(T value : values)
 		{
 			allEquals &= this.get().equals(value);
 		}
-		
+
 		return allEquals;
 	}
 
@@ -59,7 +59,7 @@ public class ObjectAssertion<T> implements Assertion<T>
 	{
 		return this.get() == value;
 	}
-	
+
 	@Override
 	public boolean hasToString(String str)
 	{

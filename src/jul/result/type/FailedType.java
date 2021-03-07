@@ -3,20 +3,20 @@ package jul.result.type;
 public class FailedType implements ResultType
 {
 	private static final String FAILED_TYPE = "FAILED";
-	
+
 	private String cause;
-	
+
 	public FailedType(String cause)
 	{
 		this.cause = cause;
 	}
-	
+
 	@Override
 	public String getType()
 	{
-		return FAILED_TYPE;
+		return FailedType.FAILED_TYPE;
 	}
-	
+
 	@Override
 	public String getCause()
 	{
@@ -32,6 +32,6 @@ public class FailedType implements ResultType
 	@Override
 	public String toString()
 	{
-		return FAILED_TYPE;
+		return FailedType.FAILED_TYPE;
 	}
 }

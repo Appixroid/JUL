@@ -7,9 +7,9 @@ public class PassedType implements ResultType
 	@Override
 	public String getType()
 	{
-		return PASSED_TYPE;
+		return PassedType.PASSED_TYPE;
 	}
-	
+
 	@Override
 	public String getCause()
 	{
@@ -25,6 +25,6 @@ public class PassedType implements ResultType
 	@Override
 	public String toString()
 	{
-		return PASSED_TYPE;
+		return PassedType.PASSED_TYPE;
 	}
 }

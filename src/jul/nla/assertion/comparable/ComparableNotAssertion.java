@@ -5,12 +5,13 @@ import jul.nla.assertion.NotAssertion;
 public class ComparableNotAssertion<T extends Comparable<T>> extends NotAssertion<T> implements ComparableAssertion<T>
 {
 	private ComparableAssertion<T> inner;
+
 	public ComparableNotAssertion(ComparableAssertion<T> inner)
 	{
 		super(inner);
 		this.inner = inner;
 	}
-	
+
 	@Override
 	protected ComparableAssertion<T> inside()
 	{

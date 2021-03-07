@@ -35,7 +35,7 @@ public class JUL
 	{
 		ClassLoader.getSystemClassLoader().setDefaultAssertionStatus(true);
 		TestSetResults result = new TestSetResults();
-		
+
 		for(Class<?> c : Classes.getAnnotatedClasses(TestSet.class))
 		{
 			try
@@ -48,7 +48,7 @@ public class JUL
 				e.printStackTrace();
 			}
 		}
-		
+
 		return result;
 	}
 
@@ -58,11 +58,11 @@ public class JUL
 		{
 			TestSetResult result = new TestSetResult(testClass.getName());
 			Object testInstance = testClass.getConstructor().newInstance();
-			
+
 			JUL.executeBeforeAll(testClass, testInstance);
 			Collection<TestResult> testResults = JUL.executeTests(testClass, testInstance);
 			JUL.executeAfterAll(testClass, testInstance);
-			
+
 			result.addAll(testResults);
 			return result;
 		}
@@ -85,19 +85,19 @@ public class JUL
 	}
 
 	private static Collection<TestResult> executeTests(Class<?> testClass, Object testInstance) throws JULException
-	{		
+	{
 		Collection<TestResult> results = new ArrayList<TestResult>();
-		
+
 		for(Method test : Methods.getAnnotatedMethods(testClass, Test.class))
 		{
-			
+
 			JUL.executeBeforeEach(testClass, testInstance);
 			ResultType result = JUL.executeTest(test, testInstance);
 			JUL.executeAfterEach(testClass, testInstance);
 
 			results.add(new TestResult(test.getName(), result));
 		}
-		
+
 		return results;
 	}
 
@@ -117,7 +117,7 @@ public class JUL
 	{
 		try
 		{
-			test.invoke(testInstance);			
+			test.invoke(testInstance);
 			return new PassedType();
 		}
 		catch(InvocationTargetException e)
