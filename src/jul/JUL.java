@@ -124,7 +124,7 @@ public class JUL
 		{
 			if(e.getCause() instanceof AssertionError)
 			{
-				return new FailedType();
+				return new FailedType(e.getCause().getMessage());
 			}
 			else
 			{

@@ -9,6 +9,12 @@ public class PassedType implements ResultType
 	{
 		return PASSED_TYPE;
 	}
+	
+	@Override
+	public String getCause()
+	{
+		return "";
+	}
 
 	@Override
 	public boolean isSuccess()

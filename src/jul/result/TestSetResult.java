@@ -2,9 +2,11 @@ package jul.result;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.stream.Collectors;
 
-public class TestSetResult
+public class 
+TestSetResult implements Iterable<TestResult>
 {
 	private String name;
 	private Collection<TestResult> results;
@@ -23,6 +25,16 @@ public class TestSetResult
 	public void addAll(Collection<TestResult> results)
 	{
 		this.results.addAll(results);
+	}
+	
+	public String getName()
+	{
+		return name;
+	}
+	
+	public boolean allPassed()
+	{
+		return this.getPassedTest() == this.getTotalTests();
 	}
 	
 	public int getPassedTest()
@@ -50,5 +62,11 @@ public class TestSetResult
 		str += "Total : " + this.getPassedTest() + " / " + this.getTotalTests() + " PASSED";
 		
 		return str;
+	}
+
+	@Override
+	public Iterator<TestResult> iterator()
+	{
+		return this.results.iterator();
 	}
 }

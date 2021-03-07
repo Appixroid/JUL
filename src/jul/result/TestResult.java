@@ -18,6 +18,21 @@ public class TestResult
 		return this.type.isSuccess();
 	}
 	
+	public String getName()
+	{
+		return this.name;
+	}
+	
+	public String getType()
+	{
+		return this.type.getType();
+	}
+	
+	public String getCause()
+	{
+		return this.type.getCause();
+	}
+	
 	@Override
 	public String toString()
 	{

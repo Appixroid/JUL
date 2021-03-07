@@ -18,6 +18,12 @@ public class ErrorType implements ResultType
 	}
 
 	@Override
+	public String getCause()
+	{
+		return this.cause;
+	}
+	
+	@Override
 	public boolean isSuccess()
 	{
 		return false;
