@@ -1,20 +1,35 @@
 package jul.nla.assertion.comparable;
 
-import jul.nla.assertion.Assertion;
+import jul.nla.Assertion;
+import jul.nla.assertion.ObjectAssertion;
 
-public interface ComparableAssertion<T extends Comparable<T>> extends Assertion<T>
+public class ComparableAssertion<T extends Comparable<T>> extends ObjectAssertion
 {
-	public abstract boolean isGreaterThan(T value);
+	private T value;
 
-	public abstract boolean isGreaterOrEqualTo(T value);
-
-	public abstract boolean isLessThan(T value);
-
-	public abstract boolean isLessOrEqualTo(T value);
-
-	@Override
-	public default ComparableAssertion<T> not()
+	public ComparableAssertion(T value)
 	{
-		return new ComparableNotAssertion<T>(this);
+		super(value);
+		this.value = value;
+	}
+	
+	public Assertion isGreaterThan(T value)
+	{
+		return new GreaterAssertion<T>(this.value, value);
+	}
+
+	public Assertion isGreaterOrEqualTo(T value)
+	{
+		return new GreaterOrEqualAssertion<T>(this.value, value);
+	}
+
+	public Assertion isLessThan(T value)
+	{
+		return new LesserAssertion<T>(this.value, value);
+	}
+
+	public Assertion isLessOrEqualTo(T value)
+	{
+		return new LesserOrEqualAssertion<T>(this.value, value);
 	}
 }

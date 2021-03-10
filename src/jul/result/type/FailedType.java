@@ -20,7 +20,14 @@ public class FailedType implements ResultType
 	@Override
 	public String getCause()
 	{
-		return this.cause;
+		if(this.cause != null)
+		{
+			return this.cause;
+		}
+		else
+		{
+			return "Unknow";
+		}
 	}
 
 	@Override
@@ -32,6 +39,6 @@ public class FailedType implements ResultType
 	@Override
 	public String toString()
 	{
-		return FailedType.FAILED_TYPE;
+		return FailedType.FAILED_TYPE + " because " + this.getCause();
 	}
 }

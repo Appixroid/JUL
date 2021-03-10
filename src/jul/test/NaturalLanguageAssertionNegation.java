@@ -7,7 +7,7 @@ import java.util.Map;
 
 import jul.annotations.Test;
 import jul.annotations.TestSet;
-import jul.nla.Asserts;
+import static jul.nla.Asserts.*;
 
 @TestSet
 public class NaturalLanguageAssertionNegation
@@ -15,73 +15,67 @@ public class NaturalLanguageAssertionNegation
 	@Test
 	public void isNotEqualTo()
 	{
-		assert Asserts.that(5).not().isEqualTo(6);
+		asserts(not(that(5).isEqualTo(6)));
 	}
 
 	@Test
 	public void isNotGreaterThan()
 	{
-		assert Asserts.that(5).not().isGreaterThan(10);
+		asserts(not(that(5).isGreaterThan(10)));
 	}
 
 	@Test
 	public void isNotGreaterOrEqualTo()
 	{
-		assert Asserts.that(5).not().isGreaterOrEqualTo(10);
+		asserts(not(that(5).isGreaterOrEqualTo(10)));
 	}
 
 	@Test
 	public void isNotLessThan()
 	{
-		assert Asserts.that(5).not().isLessThan(1);
+		asserts(not(that(5).isLessThan(1)));
 	}
 
 	@Test
 	public void isNotLessOrEqualTo()
 	{
-		assert Asserts.that(5).not().isLessOrEqualTo(1);
+		asserts(not(that(5).isLessOrEqualTo(1)));
 	}
 
 	@Test
 	public void isNotCloseTo()
 	{
-		assert Asserts.that(5.1).not().isCloseTo(8d);
-	}
-
-	@Test
-	public void isNotAllOf()
-	{
-		assert Asserts.that(5).not().isAllOf(5, 4, 5);
+		asserts(not(that(5.1).isCloseTo(8d)));
 	}
 
 	@Test
 	public void isNotIn()
 	{
-		assert Asserts.that(5).not().isIn(1, 9);
+		asserts(not(that(5).isIn(1, 9)));
 	}
 
 	@Test
 	public void isNotNullValue()
 	{
-		assert Asserts.that(5).not().isNullValue();
+		asserts(not(that(5).isNullValue()));
 	}
 
 	@Test
 	public void isNotIntanceOf()
 	{
-		assert Asserts.that(5).not().isInstanceOf(String.class);
+		asserts(not(that(5).isInstanceOf(String.class)));
 	}
 
 	@Test
 	public void isNotSameInstance()
 	{
-		assert Asserts.that(new Object()).not().isSameInstance(new Object());
+		asserts(not(that(new Object()).isSameInstance(new Object())));
 	}
 
 	@Test
 	public void hasNotToString()
 	{
-		assert Asserts.that(5).not().hasToString("6");
+		asserts(not(that(5).hasToString("6")));
 	}
 
 	@Test
@@ -94,7 +88,7 @@ public class NaturalLanguageAssertionNegation
 			}
 		};
 
-		assert Asserts.that(l).not().hasItem(5);
+		asserts(not(that(l).hasItem(5)));
 	}
 
 	@Test
@@ -106,7 +100,7 @@ public class NaturalLanguageAssertionNegation
 				this.put(1, "1");
 			}
 		};
-		assert Asserts.that(m).not().hasEntry(5, "5");
+		asserts(not(that(m).hasEntry(5, "5")));
 	}
 
 	@Test
@@ -118,7 +112,7 @@ public class NaturalLanguageAssertionNegation
 				this.put(1, "1");
 			}
 		};
-		assert Asserts.that(m).not().hasKey(5);
+		asserts(not(that(m).hasKey(5)));
 	}
 
 	@Test
@@ -130,24 +124,24 @@ public class NaturalLanguageAssertionNegation
 				this.put(1, "1");
 			}
 		};
-		assert Asserts.that(m).not().hasValue("5");
+		asserts(not(that(m).hasValue("5")));
 	}
 
 	@Test
 	public void startsNotWith()
 	{
-		assert Asserts.that("12345").not().startsWith("5");
+		asserts(not(that("12345").startsWith("5")));
 	}
 
 	@Test
 	public void endsNotWith()
 	{
-		assert Asserts.that("12345").not().endsWith("1");
+		asserts(not(that("12345").endsWith("1")));
 	}
 
 	@Test
 	public void notContains()
 	{
-		assert Asserts.that("12345").not().contains("8");
+		asserts(not(that("12345").contains("8")));
 	}
 }

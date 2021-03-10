@@ -1,68 +1,55 @@
 package jul.nla.assertion;
 
-import java.util.Arrays;
+import jul.nla.Assertion;
 
-public class ObjectAssertion<T> implements Assertion<T>
+public class ObjectAssertion implements Assertion
 {
-	protected T value;
-
-	public ObjectAssertion(T value)
+	private Object value;
+	
+	public ObjectAssertion(Object value)
 	{
 		this.value = value;
 	}
-
-	@Override
-	public T get()
+	
+	public Assertion isEqualTo(Object value)
 	{
-		return this.value;
+		return new EqualAssertion(this.value, value);
 	}
 
-	@Override
-	public boolean isEqualTo(T value)
+	public Assertion isIn(Object... values)
 	{
-		return this.get().equals(value);
+		return new InAssertion(this.value, values);
 	}
 
-	@Override
-	public boolean isAllOf(@SuppressWarnings("unchecked") T... values)
+	public Assertion isNullValue()
 	{
-		boolean allEquals = true;
-
-		for(T value : values)
-		{
-			allEquals &= this.get().equals(value);
-		}
-
-		return allEquals;
+		return new NullAssertion(this.value);
 	}
 
-	@Override
-	public boolean isIn(@SuppressWarnings("unchecked") T... values)
+	public Assertion isInstanceOf(Class<?> classValue)
 	{
-		return Arrays.asList(values).contains(this.get());
+		return new InstanceOfAssertion(this.value, classValue);
 	}
 
-	@Override
-	public boolean isNullValue()
+	public Assertion isSameInstance(Object value)
 	{
-		return this.get() == null;
+		return new SameInstanceAssertion(this.value, value);
 	}
 
-	@Override
-	public boolean isInstanceOf(Class<?> classValue)
+	public Assertion hasToString(String str)
 	{
-		return this.get().getClass().equals(classValue);
+		return new ToStringAssertion(this.value, str);
 	}
-
+	
 	@Override
-	public boolean isSameInstance(T value)
+	public boolean isValid()
 	{
-		return this.get() == value;
+		return true;
 	}
-
+	
 	@Override
-	public boolean hasToString(String str)
+	public String getMessage()
 	{
-		return this.get().toString().equals(str);
+		return "";
 	}
 }

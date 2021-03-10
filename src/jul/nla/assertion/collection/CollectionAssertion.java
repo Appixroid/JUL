@@ -2,15 +2,21 @@ package jul.nla.assertion.collection;
 
 import java.util.Collection;
 
-import jul.nla.assertion.Assertion;
+import jul.nla.Assertion;
+import jul.nla.assertion.ObjectAssertion;
 
-public interface CollectionAssertion<T extends Collection<?>> extends Assertion<T>
+public class CollectionAssertion extends ObjectAssertion
 {
-	public abstract boolean hasItem(Object value);
-
-	@Override
-	public default CollectionAssertion<T> not()
+	private Collection<?> value;
+	
+	public CollectionAssertion(Collection<?> value)
 	{
-		return new CollectionNotAssertion<T>(this);
+		super(value);
+		this.value = value;
+	}
+	
+	public Assertion hasItem(Object value)
+	{
+		return new HasItemAssertion(this.value, value);
 	}
 }

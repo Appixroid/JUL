@@ -32,6 +32,6 @@ public class ErrorType implements ResultType
 	@Override
 	public String toString()
 	{
-		return ErrorType.ERROR_TYPE + " because " + this.cause;
+		return ErrorType.ERROR_TYPE + " threw " + this.getCause();
 	}
 }

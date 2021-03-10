@@ -2,19 +2,31 @@ package jul.nla.assertion.map;
 
 import java.util.Map;
 
-import jul.nla.assertion.Assertion;
+import jul.nla.Assertion;
+import jul.nla.assertion.ObjectAssertion;
 
-public interface MapAssertion<T extends Map<?, ?>> extends Assertion<T>
+public class MapAssertion extends ObjectAssertion
 {
-	public abstract boolean hasEntry(Object key, Object value);
-
-	public abstract boolean hasKey(Object key);
-
-	public abstract boolean hasValue(Object value);
-
-	@Override
-	public default MapAssertion<T> not()
+	private Map<?, ?> value;
+	
+	public MapAssertion(Map<?, ?> value)
 	{
-		return new MapNotAssertion<>(this);
+		super(value);
+		this.value = value;
+	}
+	
+	public Assertion hasEntry(Object key, Object value)
+	{
+		return new HasEntryAssertion(this.value, key, value);
+	}
+	
+	public Assertion hasKey(Object key)
+	{
+		return new HasKeyAssertion(this.value, key);
+	}
+	
+	public Assertion hasValue(Object value)
+	{
+		return new HasValueAssertion(this.value, value);
 	}
 }

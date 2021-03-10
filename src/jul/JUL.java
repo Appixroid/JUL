@@ -12,6 +12,7 @@ import jul.annotations.BeforeAll;
 import jul.annotations.BeforeEach;
 import jul.annotations.Test;
 import jul.annotations.TestSet;
+import jul.exception.JULAssertException;
 import jul.exception.JULException;
 import jul.exception.MethodReflectionException;
 import jul.reflection.Classes;
@@ -122,7 +123,7 @@ public class JUL
 		}
 		catch(InvocationTargetException e)
 		{
-			if(e.getCause() instanceof AssertionError)
+			if(e.getCause() instanceof AssertionError || e.getCause() instanceof JULAssertException)
 			{
 				return new FailedType(e.getCause().getMessage());
 			}
