@@ -20,6 +20,6 @@ public class NullAssertion implements Assertion
 	@Override
 	public String getMessage()
 	{
-		return this.value.toString() + " must be null";
+		return this.value.toString() + " is not null";
 	}
 }

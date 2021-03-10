@@ -25,6 +25,6 @@ public class HasItemAssertion implements Assertion
 	@Override
 	public String getMessage()
 	{
-		return this.collection.toString() + " doesn't contain " + this.value.toString();
+		return this.collection.toString() + " doesn't contain item : " + this.value.toString();
 	}
 }

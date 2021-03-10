@@ -20,6 +20,6 @@ public class NotAssertion implements Assertion
 	@Override
 	public String getMessage()
 	{
-		return "not ( " + this.toNegate.getMessage() + " )";
+		return "Opposite of ( " + this.toNegate.getMessage() + " )";
 	}
 }

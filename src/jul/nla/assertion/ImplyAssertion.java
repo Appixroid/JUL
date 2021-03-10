@@ -22,6 +22,6 @@ public class ImplyAssertion implements Assertion
 	@Override
 	public String getMessage()
 	{
-		return this.left.getMessage() + " imply " + this.right.getMessage();
+		return this.right.getMessage();
 	}
 }

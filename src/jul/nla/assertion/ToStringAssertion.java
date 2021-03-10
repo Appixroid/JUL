@@ -22,6 +22,6 @@ public class ToStringAssertion implements Assertion
 	@Override
 	public String getMessage()
 	{
-		return this.value.toString() + " is toString instead of " + this.str;
+		return this.value.toString() + " is toString result instead of " + this.str;
 	}
 }
