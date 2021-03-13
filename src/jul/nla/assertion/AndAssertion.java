@@ -22,6 +22,6 @@ public class AndAssertion implements Assertion
 	@Override
 	public String getMessage()
 	{
-		return this.left.getMessage() + " and " + this.right.getMessage();
+		return this.left.getMessage() + " or " + this.right.getMessage();
 	}
 }
