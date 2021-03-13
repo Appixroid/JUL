@@ -1,6 +1,5 @@
 package jul;
 
-import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -27,11 +26,6 @@ import jul.result.type.ResultType;
 
 public class JUL
 {
-	public static void main(String[] args) throws ClassNotFoundException, IOException
-	{
-		System.out.println(JUL.test());
-	}
-
 	public static TestSetResults test()
 	{
 		ClassLoader.getSystemClassLoader().setDefaultAssertionStatus(true);
