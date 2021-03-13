@@ -19,4 +19,9 @@ public class CollectionAssertion extends ObjectAssertion
 	{
 		return new HasItemAssertion(this.value, value);
 	}
+	
+	public Assertion isEmpty()
+	{
+		return new IsEmptyAssertion(this.value);
+	}
 }
