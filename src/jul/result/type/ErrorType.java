@@ -4,10 +4,12 @@ public class ErrorType implements ResultType
 {
 	private static final String ERROR_TYPE = "ERROR";
 
+	private String exceptionName;
 	private String cause;
 
-	public ErrorType(String cause)
+	public ErrorType(String exceptionName, String cause)
 	{
+		this.exceptionName = exceptionName;
 		this.cause = cause;
 	}
 
@@ -15,6 +17,11 @@ public class ErrorType implements ResultType
 	public String getType()
 	{
 		return ErrorType.ERROR_TYPE;
+	}
+	
+	public String getExceptionName()
+	{
+		return this.exceptionName;
 	}
 
 	@Override
@@ -32,6 +39,6 @@ public class ErrorType implements ResultType
 	@Override
 	public String toString()
 	{
-		return ErrorType.ERROR_TYPE + " threw " + this.getCause();
+		return ErrorType.ERROR_TYPE + " threw " + this.getExceptionName() + " : " + this.getCause();
 	}
 }

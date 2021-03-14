@@ -123,7 +123,7 @@ public class JUL
 			}
 			else
 			{
-				return new ErrorType(e.getCause().getMessage());
+				return new ErrorType(e.getCause().getClass().getSimpleName(), e.getCause().getMessage());
 			}
 		}
 		catch(IllegalAccessException | IllegalArgumentException e)
