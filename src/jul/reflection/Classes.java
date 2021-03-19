@@ -42,7 +42,7 @@ public class Classes
 		while(content.hasMoreElements())
 		{
 			URL element = content.nextElement();
-			File elementFile = new File(element.getFile());
+			File elementFile = new File(element.getFile().replace("%20", " "));
 
 			if(elementFile.isDirectory())
 			{
