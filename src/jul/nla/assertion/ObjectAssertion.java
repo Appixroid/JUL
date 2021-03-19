@@ -44,7 +44,14 @@ public class ObjectAssertion implements Assertion
 	@Override
 	public boolean isValid()
 	{
-		return true;
+		if(this.value instanceof Boolean)
+		{
+			return (Boolean) this.value;
+		}
+		else
+		{
+			return this.value != null;
+		}
 	}
 	
 	@Override
