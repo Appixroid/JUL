@@ -22,7 +22,7 @@ public class FailedType implements ResultType
 	{
 		if(this.cause != null)
 		{
-			return this.cause;
+			return this.cause.replace("\n", "\\n").replace("\t", "\\t");
 		}
 		else
 		{
