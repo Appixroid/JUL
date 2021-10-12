@@ -1,7 +1,0 @@
-# Ignore Eclipse
-.project
-.classpath
-.settings
-
-# Ignore Binaries
-bin/
